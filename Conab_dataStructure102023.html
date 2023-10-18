@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="/precosiagroweb/assets/58700c64/tabpanel.css" />
+
+        <meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
+        <title>Preços medios semanais</title>
+        <link rel="stylesheet" href="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/css/reset.css" type="text/css" media="screen" />
+        <link rel="stylesheet" type="text/css" media="screen" href="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/css/estiloGeral.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/css/estiloEspecifico.css" />
+        <!--[if IE]>
+            <link rel="stylesheet" type="text/css" media="screen" href="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/css/estiloIE.css" />
+            <style>
+                * html body {behavior:url("https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/css/csshover.htc");}
+            </style>
+        <![endif]-->
+        
+        <link rel="stylesheet" type="text/css" media="screen" href="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/css/design.css" />
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+        <script type="text/javascript" src="https://sisdep.conab.gov.br/precosiagroweb/common/js/IE8.js"></script>
+        <!--script type="text/javascript" src="https://sisdep.conab.gov.br/precosiagroweb/common/js/jquery-1.3.2.min.js"></script-->
+        <!--script type="text/javascript" src="https://sisdep.conab.gov.br/precosiagroweb/common/js/jquery.pngFix.js"></script-->
+        <script type="text/javascript" src="https://sisdep.conab.gov.br/precosiagroweb/common/js/jquery-1.8.2.js"></script>
+        <script type="text/javascript" src="https://sisdep.conab.gov.br/precosiagroweb/common/js/jquery-ui.js"></script>
+        <script type="text/javascript">
+            
+            function mensagemErro(erro){
+            alert(erro);
+        }
+        </script>
+        <style>
+            #ctl0_unqFORM{
+                margin-left:10px;
+                margin-top:10px;
+                margin-bottom:10px;
+                background-color:#ded8d8;
+                width:900px;
+            }
+            .tabelaListagemItens th {
+                padding: 2px 4px;
+                background-color:#CCCCCC;
+                border: 1px solid #666666;
+            }
+            .linkMaisMenus{
+                font-size:14px;
+                font-weight:bold;
+            }
+            .ui-datepicker{
+            width: auto;
+            }
+  
+
+        </style>
+    </head>
+
+    <body>
+    <span id="ctl0_ctl1" style="display:none;color:red;"></span>
+    <div class="container">
+        <div class="clearfix">
+            
+    <img src="images/logo_precos_agricolas_sociobio_pesca.gif" width="960" height="89" />
+
+        </div>
+
+        <div id="wrapperConteudo">
+            <fieldset>
+                <table width="960" style="margin-top:-23px;">
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="tabelaListagemItensWrapper" style="width:940px">
+                                <form id="ctl0_unqFORM" method="post" action="/precosiagroweb/"><div style="visibility:hidden;">
+<input type="hidden" name="ctl0_corpoConsulta_tabSemanal_1" id="ctl0_corpoConsulta_tabSemanal_1" value="0" />
+<input type="hidden" name="PRADO_PAGESTATE" id="PRADO_PAGESTATE" value="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" />
+</div>
+<script type="text/javascript" src="/precosiagroweb/assets/4bffb9b5/clientscripts.php?js=tabpanel,validator,ajax"></script>
+
+                                    
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery( "#datepicker_inicio" ).datepicker({
+                minDate: new Date(2014, 0, 1),
+                maxDate: "D",
+                showOtherMonths: true,
+                selectOtherMonths: true,
+                changeMonth: true,
+                changeYear: true});
+
+            jQuery( "#datepicker_fim" ).datepicker({
+                minDate: new Date(2014, 0, 1),
+                maxDate: "D",
+                showOtherMonths: true,
+                selectOtherMonths: true,
+                changeMonth: true,
+                changeYear: true});
+        });
+
+    </script>
+
+<style>
+.ui-datepicker{width: 240px;}
+</style>
+
+    <script language="javascript" type="text/javascript">
+
+        function verificadataSemanal() {
+            $('ctl0_corpoConsulta_DtPeriodoInicial').value = $('datepicker_inicio').value;
+            $('ctl0_corpoConsulta_DtPeriodoFinal').value = $('datepicker_fim').value;
+            $('ctl0_corpoConsulta_btnconferedataSemanal').click();
+        }
+
+        function verificadataFinalSemanal() {
+
+            $('ctl0_corpoConsulta_DtPeriodoInicial').value = $('datepicker_inicio').value;
+            $('ctl0_corpoConsulta_DtPeriodoFinal').value = $('datepicker_fim').value;
+            $('ctl0_corpoConsulta_btnconferedataFinalSemanal').click();
+
+        }
+
+        function limpargridSemanal() {
+            $('ctl0_corpoConsulta_btnlimpargridsemanal').click();
+        }
+        function limpargridmensal() {
+            $('ctl0_corpoConsulta_btnlimpargridmensal').click();
+        }
+        function alterardataSemanal(datainicial, datafinal, diasemana){
+
+            $('ctl0_corpoConsulta_DtPeriodoInicial').value = datainicial;
+            $('ctl0_corpoConsulta_DtPeriodoFinal').value = datafinal;
+
+            $('ctl0_corpoConsulta_diasemana').value = diasemana;
+
+            $('datepicker_inicio').value = datainicial;
+            $('datepicker_fim').value = datafinal;
+
+        }
+
+        function alterardataFinalSemanal(datainicial, datafinal, diasemana){
+
+            $('ctl0_corpoConsulta_DtPeriodoInicial').value = datainicial;
+            $('ctl0_corpoConsulta_DtPeriodoFinal').value = datafinal;
+
+            $('ctl0_corpoConsulta_diasemana').value = diasemana;
+
+            $('datepicker_inicio').value = datainicial;
+            $('datepicker_fim').value = datafinal;
+        }
+
+        function OnEnter(evt){
+            var key_code = evt.keyCode  ? evt.keyCode  :
+                evt.charCode ? evt.charCode :
+                evt.which    ? evt.which    : void 0;
+            if (key_code == 13){
+                return true;
+            }
+        }
+
+        function EnviaFormularioSemanal(e){
+            if(OnEnter(e)){
+                $('ctl0_corpoConsulta_btnBUSCASemanal').focus();
+                $('ctl0_corpoConsulta_btnBUSCASemanal').click();
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+
+        function EnviaFormularioMensal(e){
+            if(OnEnter(e)){
+                $('ctl0_corpoConsulta_btnBUSCAMensal').focus();
+                $('ctl0_corpoConsulta_btnBUSCAMensal').click();
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+
+        function limpaDatasemanal() {
+
+            $('ctl0_corpoConsulta_DtPeriodoInicial').value = "";
+            $('ctl0_corpoConsulta_DtPeriodoFinal').value = "";
+            $('datepicker_inicio').value = "";
+            $('datepicker_fim').value = "";
+        }
+        function limpaDataFinalsemanal() {
+
+            $('ctl0_corpoConsulta_DtPeriodoInicial').value = "";
+            $('ctl0_corpoConsulta_DtPeriodoFinal').value = "";
+            $('datepicker_inicio').value = "";
+            $('datepicker_fim').value = "";
+        }
+
+        function limpaDatamensal() {
+
+            $('ctl0_corpoConsulta_cmbbxmesinicial').value = "";
+            $('ctl0_corpoConsulta_cmbbxanoinicial').value = "";
+            $('ctl0_corpoConsulta_cmbbxmesfinal').value = "";
+            $('ctl0_corpoConsulta_cmbbxanofinal').value = "";
+        }
+
+        function verificadatamensal() {
+            $('ctl0_corpoConsulta_btnconferedatamensal').click();
+        }
+
+        function alterardatamensal(mesini, anoini, mesfim, anofim){
+            $('ctl0_corpoConsulta_cmbbxmesinicial').value = mesini;
+            //            $('ctl0_corpoConsulta_cmbbxanoinicial').value = anoini;
+            $('ctl0_corpoConsulta_cmbbxmesfinal').value = mesfim;
+            //            $('ctl0_corpoConsulta_cmbbxanofinal').value = anofim;
+        }
+
+
+    </script>
+
+
+    <table width="930" style="margin-top:-33px;  background-color: #F4F4F4;">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+
+                <input type="hidden" name="ctl0$corpoConsulta$diasemana" id="ctl0_corpoConsulta_diasemana" value="D" />
+
+                <div class="tabelaListagemItensWrapper">
+
+                    <div class="row">
+                        <div id="ctl0_corpoConsulta_tabSemanal" class="tab-panel">
+<div id="ctl0_corpoConsulta_Semanal_0" class="tab-active"><a href="javascript://">Preços médios semanais</a></div>
+<div id="ctl0_corpoConsulta_Mensal_0" class="tab-normal"><a href="javascript://">Preços médios mensais</a></div>
+<div id="ctl0_corpoConsulta_Semanal" class="tab-view">
+                                <div class="formulario" style="width: auto;">
+                                    <fieldset>
+                                        <div class="row">
+                                            <div id="indicador" style="background: url(https://sisdep.conab.gov.br/precosiagroweb//common/themes/internet/img/indicator.gif) no-repeat top left; z-index: 10; width: 16px; height: 16px; display:none; position:absolute; left:65% "></div>
+                                            <fieldset style="width: 600px;">
+                                                <div class="row">
+                                                    <table width="800px" border="0">
+
+                                                        <img src="https://sisdep.conab.gov.br/precosiagroweb//images/m_orientacao.gif" alt="" style="vertical-align:bottom;" />
+                                                        <span>Período restrito a 4 semanas por consulta.<br></span>
+                                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dados disponíveis a partir de 2014. <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As informações podem ser reproduzidas, desde que citada a fonte CONAB.<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Proibida a comercialização das informações disponibilizadas. <br></span>
+                                                       
+                                                        <br>
+                                                        <tr>
+                                                            <td width="150" height="5"></td>
+                                                            <td></td>
+                                                        </tr>
+
+                                                        <tr id="idperiodo">
+
+                                                            <td><span id="ctl0_corpoConsulta_lblperiodo">Período * :</span></td>
+                                                            <td>
+                                                                <span> Inicial :</span>
+                                                                <input type="hidden" name="ctl0$corpoConsulta$DtPeriodoInicial" id="ctl0_corpoConsulta_DtPeriodoInicial" /> 
+
+                                                                <input type="text" id="datepicker_inicio" readonly="true" size="12" maxlenght="10" onChange="verificadataSemanal();" />
+                                                                <span id="ctl0_corpoConsulta_ctl4" style="display:none;color:red;">Período Inicial: Campo obrigatório!</span>
+
+                                                                <span>&nbsp;&nbsp;&nbsp;&nbsp;Final :</span>
+                                                                <input type="text"  id="datepicker_fim" readonly="true" size="12" maxlenght="10" onChange="verificadataFinalSemanal();"/>
+                                                                <input type="hidden" name="ctl0$corpoConsulta$DtPeriodoFinal" id="ctl0_corpoConsulta_DtPeriodoFinal" />
+                                                                <span id="ctl0_corpoConsulta_ctl6" style="display:none;color:red;">Período Final: Campo obrigatório!</span>
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <input type="submit" name="ctl0$corpoConsulta$btnBUSCAProdutoSemanal" value="Pesquisar" id="ctl0_corpoConsulta_btnBUSCAProdutoSemanal" class="botao" />
+
+                                                                <!-- botao invisivel para chamar a função de data -->
+                                                                <input type="submit" name="ctl0$corpoConsulta$btnconferedataSemanal" value="" id="ctl0_corpoConsulta_btnconferedataSemanal" class="botao" style="display:none;" />
+                                                                <!-- botao invisivel para chamar a função de data -->
+                                                                <input type="submit" name="ctl0$corpoConsulta$btnconferedataFinalSemanal" value="" id="ctl0_corpoConsulta_btnconferedataFinalSemanal" class="botao" style="display:none;" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="150" height="3"></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </table>
+
+                                                    <div id="ctl0_corpoConsulta_pnlsemanal" style="display:none;">
+                                                        <table>
+                                                         <tr>
+                                                            <td width="150" height="3"></td>
+                                                            <td></td>
+                                                        </tr>   
+
+
+                                                     <tr id="idproduto">
+                                                    <td nowrap><span id="ctl0_corpoConsulta_lblproduto">Produto *:</span></td>
+                                                    <td>
+                                                        <select size="4" name="ctl0$corpoConsulta$cmbbxSelecaoProdutoSemanal[]" multiple="multiple" id="ctl0_corpoConsulta_cmbbxSelecaoProdutoSemanal" title="* Para selecionar mais de um produto alternadamente, manter pressionada a tecla   CTRL e clique sobre o(s) produto(s) desejado(s). 
+* Para selecionar mais de um produto sequencialmente, selecione o primeiro produto   mantenha pressionada a tecla SHIFT e clique sobre o ultimo produto desejado. " class="" style="height:100px;width:500px;"><option value="0">Todos</option>
+</select>
+ <!--                                                       <span id="ctl0_corpoConsulta_ctl7" style="display:none;color:red;">Informe o produto : Campo obrigatório!</span>
+--> 
+                                                      </td>            
+                                                </tr>   
+
+                                                <tr>
+                                                    <td width="130" height="15"></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap><span>Nível de comercialização *:</span></td>
+                                                    <td>
+                                                        <select size="4" name="ctl0$corpoConsulta$cmbbxSelecaoNivelComercializacaoSemanal[]" multiple="multiple" id="ctl0_corpoConsulta_cmbbxSelecaoNivelComercializacaoSemanal" title="* Para selecionar mais de um nível alternadamente, manter pressionada a tecla   CTRL e clique sobre o(s) níveis desejado(s). 
+* Para selecionar mais de um nível sequencialmente, selecione o primeiro nível e   mantenha pressionada a tecla SHIFT e clique sobre o ultimo nível desejado. " class="" style="height:60px;width:500px;"><option value="0">Todos</option>
+</select>
+ <!--                                                       
+                                                        <span id="ctl0_corpoConsulta_ctl9" style="display:none;color:red;">Informe o nivel de comercialização : Campo obrigatório!</span>
+-->
+                                                    </td>            
+                                                </tr>                                                 
+                                                
+                                                <tr>
+                                                    <td width="130" height="15"></td>
+                                                    <td></td>
+                                                </tr>
+ 
+                                                <td nowrap><span>Unidade da Federação *:</span></td>
+                                                <td>
+                                                    <select size="4" name="ctl0$corpoConsulta$cmbbxSelecaoUFSemanal[]" multiple="multiple" id="ctl0_corpoConsulta_cmbbxSelecaoUFSemanal" title="* Para selecionar mais de uma UF alternadamente, manter pressionada a tecla   CTRL e clique sobre a(s) UFs desejada(s). 
+* Para selecionar mais de uma UF sequencialmente, selecione a primeira UF e   mantenha pressionada a tecla SHIFT e clique sobre a ultima UF desejada. " class="" style="height:84px;width:500px;"><option value="0">Todas</option>
+</select>
+<!--                                                    
+                                                  <span id="ctl0_corpoConsulta_ctl11" style="display:none;color:red;">Informe a Unidade da federação : Campo obrigatório!</span>
+-->
+
+                                                </td>            
+                                            </tr>                                                    
+
+                                                             
+                                                        <!-- botao invisivel para limpar -->
+                                                        <input type="submit" name="ctl0$corpoConsulta$btnlimpargridsemanal" value="" id="ctl0_corpoConsulta_btnlimpargridsemanal" class="botao" style="display:none;" />
+
+                                                    </table>
+
+                                                    <table>
+                                                        <br>
+                                                        <tr id="idcaptcha">
+                                                            <td valign="top">
+                                                                <span id="ctl0_corpoConsulta_lblcodseguranca">C&oacute;digo de Seguran&ccedil;a*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                            </td>
+                                                            <td>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td valign="top" width="180">
+                                                                            <div id="ctl0_corpoConsulta_captchaPanelsemanal" style="vertical-align:middle;background-color:#ffffff;">
+                                                                                <img src="/precosiagroweb/assets/58700c64/captcha.php?options=YTFjZDhhNjIzMWQ4MWFlNjQ5YjJjM2I2OGE1NmY1MjFhOjc6e3M6OToicHVibGljS2V5IjtzOjMyOiI4MGQzNWYyMDIwN2UyY2VkMWY2NWI2MTRjNTcwM2UyYiI7czoxMToidG9rZW5MZW5ndGgiO2k6NTtzOjEzOiJjYXNlU2Vuc2l0aXZlIjtiOjA7czo4OiJhbHBoYWJldCI7czozMDoiMjM0NTc4YWRlZmhpam1ucnRBQkRFRkdISkxNTlJUIjtzOjg6ImZvbnRTaXplIjtpOjMwO3M6NToidGhlbWUiO2k6MDtzOjEwOiJyYW5kb21TZWVkIjtpOjI1MzgyO30%3D" alt="" id="ctl0_corpoConsulta_captchaImagesemanal" title="Código de Segurança" style="vertical-align:middle;position:absolute;background-color:#ffffff;" />
+                                                                            </div>
+                                                                        </td>
+
+                                                                        <td valign="top">
+                                                                            <input name="ctl0$corpoConsulta$captchaInputsemanal" type="text" size="12" maxlength="10" id="ctl0_corpoConsulta_captchaInputsemanal" onkeypress="return EnviaFormularioSemanal(event);" />
+
+                                                                            <br />
+                                                                            <p><span id="ctl0_corpoConsulta_lblinstseguranca">Se n&atilde;o conseguir visualizar a imagem</span>
+                                                                                <a id="ctl0_corpoConsulta_ctl12" href="javascript:;//ctl0_corpoConsulta_ctl12"><span id="ctl0_corpoConsulta_lblclique">&nbsp;&nbsp;clique aqui</span>
+                                                                            </a></p>
+                                                                            <br />
+                                                                            <input type="submit" name="ctl0$corpoConsulta$btnBUSCASemanal" value="Consultar" id="ctl0_corpoConsulta_btnBUSCASemanal" class="botao" />
+                                                                            <input type="submit" name="ctl0$corpoConsulta$btnLimparsemanal" value="Limpar" id="ctl0_corpoConsulta_btnLimparsemanal" class="botao" />
+                                                                            <!-- 120 segundos -->
+                                                                            
+                                                                                
+                                                                            
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                    <div width="750" >
+                                                    <br>
+                                                    <tr><td valign="top" colspan="3" ><span>* Campos Obrigat&oacute;rios</span></td></tr>
+                                                    <tr>
+                                                      <td  valign="top" colspan="3"><span>* Para selecionar mais de uma opção alternadamente, manter pressionada a tecla CTRL e clique sobre a(s) opções desejada(s). </span></td> 
+                                                    </tr>
+                                                    <tr>
+                                                      <td valign="top" colspan="3" ><span>* Para selecionar mais de uma opção sequencialmente, selecione a primeira opção e mantenha pressionada a tecla SHIFT e clique sobre a ultima opção desejada. </span></td> 
+                                                    </tr>                                          
+                                                    </div>                                                          
+
+                                                    </table>
+                                                        
+                                                      
+                                                        
+                                                        
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </fieldset>
+
+                                    <div id="ctl0_corpoConsulta_tabpnlsemanal" style="display:none;">
+
+                                        <div class="tabelaListagemItensWrapper">
+                                            <div class="infoFiltrosListagemItens">
+                                                <span id="ctl0_corpoConsulta_qtdOcorrenciassemanal"></span>
+                                            </div>
+                                            <div class="tabelaListagemItens">
+                                                <div id="ctl0_corpoConsulta_ActivePanelFordatagridVwProdutoSiagroSemanal"></div>
+                                            </div>
+                                        </div>
+
+                                        <div id="ctl0_corpoConsulta_exportarsemanal" class="exportlinks" style="display:none;">
+                                            Exportar para:
+                                            <a title="Excel" href="?page=reports.RelatorioSiagroPrecoMedioXLS" target="blank"><span class="excel"><img src="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/img/gif_trans.gif" /></span></a>
+                                            <a title="Html" href="?page=reports.RelatorioSiagroPrecoMedioHTML" target="blank"><span class="html"><img src="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/img/gif_trans.gif" /></span></a>
+                                            <a title="PDF" href="?page=reports.RelatorioSiagroPrecoMedioPDF" target="blank"><span class="pdf"><img src="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/img/gif_trans.gif" /></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+<div id="ctl0_corpoConsulta_Mensal" class="tab-view" style="display:none;">
+                                <fieldset style="width: 600px;">
+                                    <div class="row">
+                                        <div id="indicador2" style="background: url(https://sisdep.conab.gov.br/precosiagroweb//common/themes/internet/img/indicator.gif) no-repeat top left; z-index: 10; width: 16px; height: 16px; display:none; position:absolute; left:65% "></div>
+                                        <table width="800px" border="0">
+                                            <br>
+                                            <img src="https://sisdep.conab.gov.br/precosiagroweb//images/m_orientacao.gif" alt="" style="vertical-align:bottom;" />
+                                            <span>Dados disponíveis a partir de 2014. <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  As informações podem ser reproduzidas, desde que citada a fonte CONAB.<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Proibida a comercialização das informações disponibilizadas. <br></span>
+                                            <br>
+                                            <tr>
+                                                <td width="150" height="5"></td>
+                                                <td><br></td>
+                                            </tr>
+                                            <tr>
+                                            <td nowrap><span id="ctl0_corpoConsulta_lblperiodomensal">Período * :</span></td>
+                                            <td>
+                                                <select name="ctl0$corpoConsulta$cmbbxmesinicial" id="ctl0_corpoConsulta_cmbbxmesinicial" title="Consulta disponível até o mês anterior ao atual." class="" onchange="verificadatamensal();" style="width:100px;"><option value="0">... Selecione ...</option>
+
+<option value="01">Janeiro</option>
+<option value="02">Fevereiro</option>
+<option value="03">Março</option>
+<option value="04">Abril</option>
+<option value="05">Maio</option>
+<option value="06">Junho</option>
+<option value="07">Julho</option>
+<option value="08">agosto</option>
+<option value="09">Setembro</option>
+<option value="10">Outubro</option>
+<option value="11">Novembro</option>
+<option value="12">Dezembro</option>
+</select>
+                                                
+                                                <span id="ctl0_corpoConsulta_ctl21" style="display:none;color:red;">Selecione o mês inicial: Campo obrigatório!</span>
+
+                                                <span id="ctl0_corpoConsulta_lblanoinicial" style="Height:100px;font-weight:bold;"><b>/</b></span>
+
+                                                <select name="ctl0$corpoConsulta$cmbbxanoinicial" id="ctl0_corpoConsulta_cmbbxanoinicial" title="Consulta disponível até o mês anterior ao atual.." class="" onchange="verificadatamensal();" style="width:100px;"><option value="0">... Selecione ...</option>
+
+<option value="2023">2023</option>
+<option value="2022">2022</option>
+<option value="2021">2021</option>
+<option value="2020">2020</option>
+<option value="2019">2019</option>
+<option value="2018">2018</option>
+<option value="2017">2017</option>
+<option value="2016">2016</option>
+<option value="2015">2015</option>
+<option value="2014">2014</option>
+</select>
+                                                <span id="ctl0_corpoConsulta_ctl22" style="display:none;color:red;">Informe o Ano Inicial : Campo obrigatório!</span>
+                                                <span id="ctl0_corpoConsulta_lblintervalo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                <select name="ctl0$corpoConsulta$cmbbxmesfinal" id="ctl0_corpoConsulta_cmbbxmesfinal" class="" style="width:100px;"><option value="0">... Selecione ...</option>
+
+<option value="01">Janeiro</option>
+<option value="02">Fevereiro</option>
+<option value="03">Março</option>
+<option value="04">Abril</option>
+<option value="05">Maio</option>
+<option value="06">Junho</option>
+<option value="07">Julho</option>
+<option value="08">agosto</option>
+<option value="09">Setembro</option>
+<option value="10">Outubro</option>
+<option value="11">Novembro</option>
+<option value="12">Dezembro</option>
+</select>
+                                                <span id="ctl0_corpoConsulta_ctl23" style="display:none;color:red;">Selecione o mês final: Campo obrigatório!</span>
+                                                <span id="ctl0_corpoConsulta_lblanofinal">/</span>
+                                                <select name="ctl0$corpoConsulta$cmbbxanofinal" id="ctl0_corpoConsulta_cmbbxanofinal" class="" style="width:100px;"><option value="0">... Selecione ...</option>
+
+<option value="2023">2023</option>
+<option value="2022">2022</option>
+<option value="2021">2021</option>
+<option value="2020">2020</option>
+<option value="2019">2019</option>
+<option value="2018">2018</option>
+<option value="2017">2017</option>
+<option value="2016">2016</option>
+<option value="2015">2015</option>
+<option value="2014">2014</option>
+</select>
+                                                <span id="ctl0_corpoConsulta_ctl24" style="display:none;color:red;">Informe o ano final : Campo obrigatório!</span>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <input type="submit" name="ctl0$corpoConsulta$btnPesquisarMensal" value="Pesquisar" id="ctl0_corpoConsulta_btnPesquisarMensal" class="botao" />
+                                                <br><br>
+                                                <!-- botao invisivel para chamar a função de data -->
+                                                <input type="submit" name="ctl0$corpoConsulta$btnconferedatamensal" value="" id="ctl0_corpoConsulta_btnconferedatamensal" class="botao" style="display:none;" />
+                                                <!-- 240 segundos -->
+                                                
+                                                    
+                                                
+
+                                            </td>
+                                        </table>
+
+                                        <div id="ctl0_corpoConsulta_pnlmensal" style="display:none;">
+                                            <table>
+                                                <tr>
+                                                    <td width="150" height="5"></td>
+                                                </tr>
+                                                <tr>
+                                                <td nowrap><span>Produto *:</span></td>
+                                                <td>
+                                                    <select size="4" name="ctl0$corpoConsulta$cmbbxSelecaoProdutoMensal[]" multiple="multiple" id="ctl0_corpoConsulta_cmbbxSelecaoProdutoMensal" title="Número de produto limitado a xxxxxxxxxxxx por consulta.
+                            Para selecionar mais de uma opção, manter pressionada a tecla CTRL e clicar sobre os produtos desejados). " class="" style="height:100px;width:500px;"><option value="0">Todos</option>
+</select>
+                                                    <span id="ctl0_corpoConsulta_ctl26" style="display:none;color:red;">Informe o produto - mensal : Campo obrigatório!</span>
+                                                </td>            
+                                                </tr>
+
+                                                <tr>
+                                                    <td width="130" height="15"></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap><span>Nível de comercialização *:</span></td>
+                                                    <td>
+                                                        <select size="4" name="ctl0$corpoConsulta$cmbbxSelecaoNivelComercializacaoMensal[]" multiple="multiple" id="ctl0_corpoConsulta_cmbbxSelecaoNivelComercializacaoMensal" title="Número do nível de comercialização limitado a xxxxxxxxxxx por consulta.
+                                Para selecionar mais de uma opção, manter pressionada a tecla CTRL e clicar sobre os níveis de comercialização desejados). " class="" style="height:60px;width:500px;"><option value="0">Todos</option>
+</select>
+                                                        <span id="ctl0_corpoConsulta_ctl28" style="display:none;color:red;">Informe o nivel de comercialização : Campo obrigatório!</span>
+                                                    </td>            
+                                                </tr>                                                 
+                                                
+                                                 <tr>
+                                                    <td width="130" height="15"></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td nowrap><span>Unidade da Federação *:</span></td>
+                                                    <td>
+                                                        <select size="4" name="ctl0$corpoConsulta$cmbbxSelecaoUFMensal[]" multiple="multiple" id="ctl0_corpoConsulta_cmbbxSelecaoUFMensal" title="Número do UF limitado a xxxxxxxxxxxxx por consulta.
+                                Para selecionar mais de uma opção, manter pressionada a tecla CTRL e clicar sobre as UF's desejados.                                              
+                                Para selecionar todas, selecione a primeira uf e manter pressionada a tecla SHIFT e clicar sobre a ultima UF desejada. " class="" style="height:84px;width:500px;"><option value="0">Todas</option>
+</select>
+                                                        <span id="ctl0_corpoConsulta_ctl30" style="display:none;color:red;">Informe a Unidade da federação : Campo obrigatório!</span>
+                                                    </td>            
+                                                </tr>                                                    
+                                                 
+                                                <tr>
+                                                    <td width="120" height="30"></td>
+                                                    <td></td>
+                                                </tr>                                                
+                                                <!-- botao invisivel para limpar -->
+                                                <input type="submit" name="ctl0$corpoConsulta$btnlimpargridmensal" value="" id="ctl0_corpoConsulta_btnlimpargridmensal" class="botao" style="display:none;" />
+                                                <tr id="idcaptcha">
+                                                    <td valign="top">
+                                                        <span id="ctl0_corpoConsulta_lblcodsegurancamensal">C&oacute;digo de Seguran&ccedil;a*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                    </td>
+                                                    <td>
+                                                        <table>
+                                                            <tr>
+                                                                <td valign="top" width="180">
+                                                                    <div id="ctl0_corpoConsulta_captchaPanelmensal" style="vertical-align:middle;background-color:#ffffff;">
+                                                                        <img src="/precosiagroweb/assets/58700c64/captcha.php?options=ZmIxMTM0YjIxZDEyYThmY2NmNGRjODI5YjUzODEzYzZhOjc6e3M6OToicHVibGljS2V5IjtzOjMyOiIzNDhmMzEwZmE0MmJmN2RjMjZlZTg1ZTI3MmEzOWRjZiI7czoxMToidG9rZW5MZW5ndGgiO2k6NTtzOjEzOiJjYXNlU2Vuc2l0aXZlIjtiOjA7czo4OiJhbHBoYWJldCI7czozMDoiMjM0NTc4YWRlZmhpam1ucnRBQkRFRkdISkxNTlJUIjtzOjg6ImZvbnRTaXplIjtpOjMwO3M6NToidGhlbWUiO2k6MDtzOjEwOiJyYW5kb21TZWVkIjtpOjI3MTQxO30%3D" alt="" id="ctl0_corpoConsulta_captchaImagemensal" title="Código de Segurança" style="vertical-align:middle;position:absolute;background-color:#ffffff;" />
+                                                                    </div>
+                                                                </td>
+
+                                                                <td valign="top">
+                                                                    <input name="ctl0$corpoConsulta$captchaInputmensal" type="text" size="12" maxlength="10" id="ctl0_corpoConsulta_captchaInputmensal" />
+                                                                    <br />
+                                                                    <p><span id="ctl0_corpoConsulta_lblinstsegurancamensal">Se n&atilde;o conseguir visualizar a imagem</span><a id="ctl0_corpoConsulta_ctl31" href="javascript:;//ctl0_corpoConsulta_ctl31"><span id="ctl0_corpoConsulta_lblcliquemensal">&nbsp;&nbsp;clique aqui</span> </a></p>
+                                                                    <br />
+                                                                    <input type="submit" name="ctl0$corpoConsulta$btnBUSCAMensal" value="Consultar" id="ctl0_corpoConsulta_btnBUSCAMensal" class="botao" />
+                                                                    <input type="submit" name="ctl0$corpoConsulta$btnLimparmensal" value="Limpar" id="ctl0_corpoConsulta_btnLimparmensal" class="botao" />
+                                                                    <!-- 120 segundos -->
+                                                                    
+                                                                        
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td> <br>
+                                                </tr> 
+                                                <tr>
+                                                    <td height="30"></td>
+                                                </tr>                                                  
+                                                <div>
+                                                <br>
+                                                <tr><td valign="top" colspan="3"><span>* Campos Obrigat&oacute;rios</span></td></tr>
+                                                <tr>
+                                                  <td  valign="top" colspan="3"><span>* Na seleção de todos os produtos e todas as unidades da federação, o período é restrito a um ano.  </span></td> 
+                                                </tr>
+                                                       
+                                                <tr>
+                                                  <td  valign="top" colspan="3" ><span>* Para selecionar mais de uma opção alternadamente, manter pressionada a tecla CTRL e clique sobre a(s) opções desejada(s). </span></td> 
+                                                </tr>
+                                                <tr>
+                                                  <td valign="top" colspan="3"><span>* Para selecionar mais de uma opção sequencialmente, selecione a primeira opção e mantenha pressionada a tecla SHIFT e clique sobre a ultima opção desejada. </span></td> 
+                                                </tr>      
+                                                </div>       
+                                            </table>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+
+
+                                <div id="ctl0_corpoConsulta_tabpnlmensal" style="display:none;">
+                                    <div class="tabelaListagemItensWrapper">
+                                        <div class="infoFiltrosListagemItens">
+                                            <span id="ctl0_corpoConsulta_qtdOcorrenciasmensal"></span>
+                                        </div>
+                                        <div class="tabelaListagemItens">
+                                            <div id="ctl0_corpoConsulta_ActivePanelFordatagridVwProdutoSiagroMensal"></div>
+                                        </div>
+
+                                        <hr>
+                                        <div id="ctl0_corpoConsulta_exportarmensal" class="exportlinks" style="display:none;">
+                                            Exportar para:
+                                            <a title="Excel" href="?page=reports.RelatorioSiagroPrecoMedioMensalXLS" target="blank"><span class="excel"><img src="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/img/gif_trans.gif" /></span></a>
+                                            <a title="Html" href="?page=reports.RelatorioSiagroPrecoMedioMensalHTML" target="blank"><span class="html"><img src="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/img/gif_trans.gif" /></span></a>
+                                            <a title="PDF" href="?page=reports.RelatorioSiagroPrecoMedioMensalPDF" target="blank"><span class="pdf"><img src="https://sisdep.conab.gov.br/precosiagroweb/common/themes/internet/img/gif_trans.gif" /></span></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+                                <script type="text/javascript">
+/*<![CDATA[*/
+new Prado.WebUI.TTabPanel({'ID':'ctl0_corpoConsulta_tabSemanal','ActiveCssClass':'tab-active','NormalCssClass':'tab-normal','Views':['ctl0_corpoConsulta_Semanal','ctl0_corpoConsulta_Mensal']});
+new Prado.ValidationManager({'FormID':'ctl0_unqFORM'});
+new Prado.WebUI.TValidationSummary({'ID':'ctl0_ctl1','FormID':'ctl0_unqFORM','ShowMessageBox':true,'ShowSummary':false,'DisplayMode':'BulletList','Refresh':false,'ValidationGroup':'grupo1','Display':'None'});
+Prado.CallbackRequest.addPostLoaders(['cmbbxSelecaoProdutoSemanal[]','cmbbxSelecaoNivelComercializacaoSemanal[]','cmbbxSelecaoUFSemanal[]','cmbbxSelecaoProdutoMensal[]','cmbbxSelecaoNivelComercializacaoMensal[]','cmbbxSelecaoUFMensal[]','ctl0$corpoConsulta$diasemana','ctl0$corpoConsulta$tabSemanal','ctl0$corpoConsulta$DtPeriodoInicial','ctl0$corpoConsulta$DtPeriodoFinal','ctl0$corpoConsulta$cmbbxSelecaoProdutoSemanal','ctl0$corpoConsulta$cmbbxSelecaoProdutoSemanal[]','ctl0$corpoConsulta$cmbbxSelecaoNivelComercializacaoSemanal','ctl0$corpoConsulta$cmbbxSelecaoNivelComercializacaoSemanal[]','ctl0$corpoConsulta$cmbbxSelecaoUFSemanal','ctl0$corpoConsulta$cmbbxSelecaoUFSemanal[]','ctl0$corpoConsulta$captchaInputsemanal','ctl0$corpoConsulta$cmbbxmesinicial','ctl0$corpoConsulta$cmbbxanoinicial','ctl0$corpoConsulta$cmbbxmesfinal','ctl0$corpoConsulta$cmbbxanofinal','ctl0$corpoConsulta$cmbbxSelecaoProdutoMensal','ctl0$corpoConsulta$cmbbxSelecaoProdutoMensal[]','ctl0$corpoConsulta$cmbbxSelecaoNivelComercializacaoMensal','ctl0$corpoConsulta$cmbbxSelecaoNivelComercializacaoMensal[]','ctl0$corpoConsulta$cmbbxSelecaoUFMensal','ctl0$corpoConsulta$cmbbxSelecaoUFMensal[]','ctl0$corpoConsulta$captchaInputmensal']);
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl4','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Período Inicial: Campo obrigatório!','ValidationGroup':'grupo11','ControlToValidate':'ctl0_corpoConsulta_DtPeriodoInicial','ControlCssClass':'controlError','ControlType':'TActiveHiddenField'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl6','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Período Final: Campo obrigatório!','ValidationGroup':'grupo11','ControlToValidate':'ctl0_corpoConsulta_DtPeriodoFinal','ControlCssClass':'controlError','ControlType':'TActiveHiddenField'});
+new Prado.WebUI.TActiveButton({'RequestTimeOut':120000,'onLoading':function(sender, parameter){ $('indicador').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_btnBUSCAProdutoSemanal','EventTarget':'ctl0$corpoConsulta$btnBUSCAProdutoSemanal'});
+new Prado.WebUI.TActiveButton({'onLoading':function(sender, parameter){ $('indicador').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_btnconferedataSemanal','EventTarget':'ctl0$corpoConsulta$btnconferedataSemanal'});
+new Prado.WebUI.TActiveButton({'onLoading':function(sender, parameter){ $('indicador').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_btnconferedataFinalSemanal','EventTarget':'ctl0$corpoConsulta$btnconferedataFinalSemanal'});
+new Prado.WebUI.TActiveListBox({'ID':'ctl0_corpoConsulta_cmbbxSelecaoProdutoSemanal','EventTarget':'ctl0$corpoConsulta$cmbbxSelecaoProdutoSemanal'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl7','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Informe o produto : Campo obrigatório!','ValidationGroup':'grupo1','ControlToValidate':'ctl0_corpoConsulta_cmbbxSelecaoProdutoSemanal','ControlCssClass':'controlError','ControlType':'TListBox','TotalItems':0});
+new Prado.WebUI.TActiveListBox({'ID':'ctl0_corpoConsulta_cmbbxSelecaoNivelComercializacaoSemanal','EventTarget':'ctl0$corpoConsulta$cmbbxSelecaoNivelComercializacaoSemanal'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl9','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Informe o nivel de comercialização : Campo obrigatório!','ValidationGroup':'grupo1','ControlToValidate':'ctl0_corpoConsulta_cmbbxSelecaoNivelComercializacaoSemanal','ControlCssClass':'controlError','ControlType':'TListBox','TotalItems':0});
+new Prado.WebUI.TActiveListBox({'ID':'ctl0_corpoConsulta_cmbbxSelecaoUFSemanal','EventTarget':'ctl0$corpoConsulta$cmbbxSelecaoUFSemanal'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl11','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Informe a Unidade da federação : Campo obrigatório!','ValidationGroup':'grupo1','ControlToValidate':'ctl0_corpoConsulta_cmbbxSelecaoUFSemanal','ControlCssClass':'controlError','ControlType':'TListBox','TotalItems':0});
+new Prado.WebUI.TActiveButton({'onLoading':function(sender, parameter){ $('indicador').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_btnlimpargridsemanal','EventTarget':'ctl0$corpoConsulta$btnlimpargridsemanal'});
+new Prado.WebUI.TActiveTextBox({'ID':'ctl0_corpoConsulta_captchaInputsemanal','EventTarget':'ctl0$corpoConsulta$captchaInputsemanal','AutoPostBack':false,'TextMode':'SingleLine'});
+new Prado.WebUI.TActiveLinkButton({'ID':'ctl0_corpoConsulta_ctl12','EventTarget':'ctl0$corpoConsulta$ctl12','StopEvent':true});
+new Prado.WebUI.TActiveButton({'RequestTimeOut':120000,'onLoading':function(sender, parameter){ $('indicador').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador').hide(); document.body.style.cursor='auto'; },'ValidationGroup':'grupo1','ID':'ctl0_corpoConsulta_btnBUSCASemanal','EventTarget':'ctl0$corpoConsulta$btnBUSCASemanal'});
+new Prado.WebUI.TActiveButton({'onLoading':function(sender, parameter){ $('indicador').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_btnLimparsemanal','EventTarget':'ctl0$corpoConsulta$btnLimparsemanal'});
+new Prado.WebUI.TActiveDropDownList({'ID':'ctl0_corpoConsulta_cmbbxmesinicial','EventTarget':'ctl0$corpoConsulta$cmbbxmesinicial'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl21','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Selecione o mês inicial: Campo obrigatório!','ValidationGroup':'grupo21','ControlToValidate':'ctl0_corpoConsulta_cmbbxmesinicial','ControlCssClass':'controlError','ControlType':'TActiveDropDownList','InitialValue':'0','TotalItems':12});
+new Prado.WebUI.TActiveDropDownList({'onLoading':function(sender, parameter){ $('indicador2').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador2').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_cmbbxanoinicial','EventTarget':'ctl0$corpoConsulta$cmbbxanoinicial'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl22','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Informe o Ano Inicial : Campo obrigatório!','ValidationGroup':'grupo21','ControlToValidate':'ctl0_corpoConsulta_cmbbxanoinicial','ControlCssClass':'controlError','ControlType':'TActiveDropDownList','InitialValue':'0','TotalItems':10});
+new Prado.WebUI.TActiveDropDownList({'ID':'ctl0_corpoConsulta_cmbbxmesfinal','EventTarget':'ctl0$corpoConsulta$cmbbxmesfinal'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl23','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Selecione o mês final: Campo obrigatório!','ValidationGroup':'grupo21','ControlToValidate':'ctl0_corpoConsulta_cmbbxmesfinal','ControlCssClass':'controlError','ControlType':'TActiveDropDownList','InitialValue':'0','TotalItems':12});
+new Prado.WebUI.TActiveDropDownList({'onLoading':function(sender, parameter){ $('indicador2').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador2').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_cmbbxanofinal','EventTarget':'ctl0$corpoConsulta$cmbbxanofinal'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl24','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Informe o ano final : Campo obrigatório!','ValidationGroup':'grupo21','ControlToValidate':'ctl0_corpoConsulta_cmbbxanofinal','ControlCssClass':'controlError','ControlType':'TActiveDropDownList','InitialValue':'0','TotalItems':10});
+new Prado.WebUI.TActiveButton({'RequestTimeOut':240000,'onLoading':function(sender, parameter){ $('indicador2').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador2').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_btnPesquisarMensal','EventTarget':'ctl0$corpoConsulta$btnPesquisarMensal'});
+new Prado.WebUI.TActiveButton({'onLoading':function(sender, parameter){ $('indicador2').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador2').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_btnconferedatamensal','EventTarget':'ctl0$corpoConsulta$btnconferedatamensal'});
+new Prado.WebUI.TActiveListBox({'ID':'ctl0_corpoConsulta_cmbbxSelecaoProdutoMensal','EventTarget':'ctl0$corpoConsulta$cmbbxSelecaoProdutoMensal'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl26','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Informe o produto - mensal : Campo obrigatório!','ValidationGroup':'grupo2','ControlToValidate':'ctl0_corpoConsulta_cmbbxSelecaoProdutoMensal','ControlCssClass':'controlError','ControlType':'TListBox','TotalItems':0});
+new Prado.WebUI.TActiveListBox({'ID':'ctl0_corpoConsulta_cmbbxSelecaoNivelComercializacaoMensal','EventTarget':'ctl0$corpoConsulta$cmbbxSelecaoNivelComercializacaoMensal'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl28','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Informe o nivel de comercialização : Campo obrigatório!','ValidationGroup':'grupo2','ControlToValidate':'ctl0_corpoConsulta_cmbbxSelecaoNivelComercializacaoMensal','ControlCssClass':'controlError','ControlType':'TListBox','TotalItems':0});
+new Prado.WebUI.TActiveListBox({'ID':'ctl0_corpoConsulta_cmbbxSelecaoUFMensal','EventTarget':'ctl0$corpoConsulta$cmbbxSelecaoUFMensal'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_corpoConsulta_ctl30','FormID':'ctl0_unqFORM','Display':'None','ErrorMessage':'Informe a Unidade da federação : Campo obrigatório!','ValidationGroup':'grupo2','ControlToValidate':'ctl0_corpoConsulta_cmbbxSelecaoUFMensal','ControlCssClass':'controlError','ControlType':'TListBox','InitialValue':'0','TotalItems':0});
+new Prado.WebUI.TActiveButton({'onLoading':function(sender, parameter){ $('indicador').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_btnlimpargridmensal','EventTarget':'ctl0$corpoConsulta$btnlimpargridmensal'});
+new Prado.WebUI.TActiveTextBox({'onLoading':function(sender, parameter){ $('indicador').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_captchaInputmensal','EventTarget':'ctl0$corpoConsulta$captchaInputmensal','AutoPostBack':false,'TextMode':'SingleLine'});
+new Prado.WebUI.TActiveLinkButton({'ID':'ctl0_corpoConsulta_ctl31','EventTarget':'ctl0$corpoConsulta$ctl31','StopEvent':true});
+new Prado.WebUI.TActiveButton({'RequestTimeOut':120000,'onLoading':function(sender, parameter){ $('indicador2').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador2').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_btnBUSCAMensal','EventTarget':'ctl0$corpoConsulta$btnBUSCAMensal'});
+new Prado.WebUI.TActiveButton({'onLoading':function(sender, parameter){ $('indicador2').show(); document.body.style.cursor='progress'; },'onComplete':function(sender, parameter){ $('indicador2').hide(); document.body.style.cursor='auto'; },'ID':'ctl0_corpoConsulta_btnLimparmensal','EventTarget':'ctl0$corpoConsulta$btnLimparmensal'});
+/*]]>*/
+</script>
+</form>
+                                
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div><!-- fecha wrapperConteudo -->
+
+    </div> <!-- fecha container -->
+</body>
+</html>	
