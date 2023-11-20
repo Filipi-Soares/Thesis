@@ -1,0 +1,48 @@
+@startuml
+class "CEPEA/ESALQ Crystal SUGAR Price Index" {
+    +Title
+    +Table
+    +Methodology
+    +Graphic
+    +More Values
+    +Full Series
+    +Notes
+}
+
+class "Table" {
+    +Date
+    +Value in R$
+    +Daily Variation
+    +Monthly Variation
+    +Value in US$
+}
+
+class "Methodology" {
+    +Link to Methodology
+}
+
+class "Graphic" {
+    +Link to Graphic
+}
+
+class "More Values" {
+    +Expand Table
+}
+
+class "Full Series" {
+    +Link to Full Series
+}
+
+class "Notes" {
+    +Tax Information
+    +Other Notes
+}
+
+"CEPEA/ESALQ Crystal SUGAR Price Index" -- "Table"
+"CEPEA/ESALQ Crystal SUGAR Price Index" -- "Methodology"
+"CEPEA/ESALQ Crystal SUGAR Price Index" -- "Graphic"
+"CEPEA/ESALQ Crystal SUGAR Price Index" -- "More Values"
+"CEPEA/ESALQ Crystal SUGAR Price Index" -- "Full Series"
+"CEPEA/ESALQ Crystal SUGAR Price Index" -- "Notes"
+@enduml
+@startuml
