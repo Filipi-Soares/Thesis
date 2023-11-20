@@ -1,5 +1,5 @@
 @startuml
-class "CEPEA/ESALQ Crystal SUGAR Price Index" {
+class "Price Index" {
     +Title
     +Table
     +Methodology
@@ -38,11 +38,11 @@ class "Notes" {
     +Other Notes
 }
 
-"CEPEA/ESALQ Crystal SUGAR Price Index" -- "Table"
-"CEPEA/ESALQ Crystal SUGAR Price Index" -- "Methodology"
-"CEPEA/ESALQ Crystal SUGAR Price Index" -- "Graphic"
-"CEPEA/ESALQ Crystal SUGAR Price Index" -- "More Values"
-"CEPEA/ESALQ Crystal SUGAR Price Index" -- "Full Series"
-"CEPEA/ESALQ Crystal SUGAR Price Index" -- "Notes"
+"Price Index" -- "Table"
+"Price Index" -- "Methodology"
+"Price Index" -- "Graphic"
+"Price Index" -- "More Values"
+"Price Index" -- "Full Series"
+"Price Index" -- "Notes"
 @enduml
 @startuml
