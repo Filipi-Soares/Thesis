@@ -1,0 +1,40 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#">
+
+    <!-- Kingdom Animalia -->
+    <owl:Class rdf:about="https://www.gbif.org/species/1">
+        <rdfs:label xml:lang="lat">Animalia</rdfs:label>
+    </owl:Class>
+
+    <!-- Phylum Chordata -->
+    <owl:Class rdf:about="https://www.gbif.org/species/44">
+        <rdfs:label xml:lang="lat">Chordata</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/1"/>
+    </owl:Class>
+
+    <!-- Class Mammalia -->
+    <owl:Class rdf:about="https://www.gbif.org/species/359">
+        <rdfs:label xml:lang="lat">Mammalia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/44"/>
+    </owl:Class>
+
+    <!-- Order Artiodactyla -->
+    <owl:Class rdf:about="https://www.gbif.org/species/731">
+        <rdfs:label xml:lang="lat">Artiodactyla</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/359"/>
+    </owl:Class>
+
+    <!-- Family Suidae -->
+    <owl:Class rdf:about="https://www.gbif.org/species/5302">
+        <rdfs:label xml:lang="lat">Suidae</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/731"/>
+    </owl:Class>
+
+    <!-- Genus Sus -->
+    <owl:Class rdf:about="https://www.gbif.org/species/2441213">
+        <rdfs:label xml:lang="lat">Sus</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/5302"/>
+    </owl:Class>
+
+</rdf:RDF>
