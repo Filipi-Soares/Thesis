@@ -1,0 +1,46 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#">
+
+    <!-- Kingdom Animalia -->
+    <owl:Class rdf:about="https://www.gbif.org/species/1">
+        <rdfs:label xml:lang="lat">Animalia</rdfs:label>
+    </owl:Class>
+
+    <!-- Phylum Arthropoda -->
+    <owl:Class rdf:about="https://www.gbif.org/species/54">
+        <rdfs:label xml:lang="lat">Arthropoda</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/1"/>
+    </owl:Class>
+
+    <!-- Class Insecta -->
+    <owl:Class rdf:about="https://www.gbif.org/species/216">
+        <rdfs:label xml:lang="lat">Insecta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/54"/>
+    </owl:Class>
+
+    <!-- Order Hymenoptera -->
+    <owl:Class rdf:about="https://www.gbif.org/species/1457">
+        <rdfs:label xml:lang="lat">Hymenoptera</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/216"/>
+    </owl:Class>
+
+    <!-- Family Apidae -->
+    <owl:Class rdf:about="https://www.gbif.org/species/4334">
+        <rdfs:label xml:lang="lat">Apidae</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/1457"/>
+    </owl:Class>
+
+    <!-- Genus Apis -->
+    <owl:Class rdf:about="https://www.gbif.org/species/1334757">
+        <rdfs:label xml:lang="lat">Apis</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/4334"/>
+    </owl:Class>
+
+    <!-- Species Apis mellifera -->
+    <owl:Class rdf:about="https://www.gbif.org/species/1341976">
+        <rdfs:label xml:lang="lat">Apis mellifera</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/1334757"/>
+    </owl:Class>
+
+</rdf:RDF>
