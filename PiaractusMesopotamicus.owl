@@ -1,0 +1,46 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#">
+
+    <!-- Kingdom Animalia -->
+    <owl:Class rdf:about="https://www.gbif.org/species/1">
+        <rdfs:label xml:lang="lat">Animalia</rdfs:label>
+    </owl:Class>
+
+    <!-- Phylum Chordata -->
+    <owl:Class rdf:about="https://www.gbif.org/species/44">
+        <rdfs:label xml:lang="lat">Chordata</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/1"/>
+    </owl:Class>
+
+    <!-- Class Actinopterygii -->
+    <owl:Class rdf:about="https://www.gbif.org/species/204">
+        <rdfs:label xml:lang="lat">Actinopterygii</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/44"/>
+    </owl:Class>
+
+    <!-- Order Characiformes -->
+    <owl:Class rdf:about="https://www.gbif.org/species/537">
+        <rdfs:label xml:lang="lat">Characiformes</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/204"/>
+    </owl:Class>
+
+    <!-- Family Serrasalmidae -->
+    <owl:Class rdf:about="https://www.gbif.org/species/4287106">
+        <rdfs:label xml:lang="lat">Serrasalmidae</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/537"/>
+    </owl:Class>
+
+    <!-- Genus Piaractus -->
+    <owl:Class rdf:about="https://www.gbif.org/species/2353218">
+        <rdfs:label xml:lang="lat">Piaractus</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/4287106"/>
+    </owl:Class>
+
+    <!-- Species Piaractus mesopotamicus -->
+    <owl:Class rdf:about="https://www.gbif.org/species/2353219">
+        <rdfs:label xml:lang="lat">Piaractus mesopotamicus</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/2353218"/>
+    </owl:Class>
+
+</rdf:RDF>
