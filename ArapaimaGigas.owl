@@ -1,0 +1,46 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#">
+
+    <!-- Kingdom Animalia -->
+    <owl:Class rdf:about="https://www.gbif.org/species/1">
+        <rdfs:label xml:lang="lat">Animalia</rdfs:label>
+    </owl:Class>
+
+    <!-- Phylum Chordata -->
+    <owl:Class rdf:about="https://www.gbif.org/species/44">
+        <rdfs:label xml:lang="lat">Chordata</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/1"/>
+    </owl:Class>
+
+    <!-- Class Actinopterygii -->
+    <owl:Class rdf:about="https://www.gbif.org/species/204">
+        <rdfs:label xml:lang="lat">Actinopterygii</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/44"/>
+    </owl:Class>
+
+    <!-- Order Osteoglossiformes -->
+    <owl:Class rdf:about="https://www.gbif.org/species/1069">
+        <rdfs:label xml:lang="lat">Osteoglossiformes</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/204"/>
+    </owl:Class>
+
+    <!-- Family Arapaimidae -->
+    <owl:Class rdf:about="https://www.gbif.org/species/4228">
+        <rdfs:label xml:lang="lat">Arapaimidae</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/1069"/>
+    </owl:Class>
+
+    <!-- Genus Arapaima -->
+    <owl:Class rdf:about="https://www.gbif.org/species/2402332">
+        <rdfs:label xml:lang="lat">Arapaima</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/4228"/>
+    </owl:Class>
+
+    <!-- Species Arapaima gigas -->
+    <owl:Class rdf:about="https://www.gbif.org/species/5212877">
+        <rdfs:label xml:lang="lat">Arapaima gigas</rdfs:label>
+        <rdfs:subClassOf rdf:resource="https://www.gbif.org/species/2402332"/>
+    </owl:Class>
+
+</rdf:RDF>
