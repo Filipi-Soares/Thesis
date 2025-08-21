@@ -2,7 +2,7 @@
   "@context": [
     "https://www.w3.org/2018/credentials/v1"
   ],
-  "id": "https://raw.githubusercontent.com/AlmesCore/Almes-Core/main/Credentials/KGAP.json",
+  "id": "https://raw.githubusercontent.com/Filipi-Soares/Thesis/main/KGAP.json",
   "type": ["VerifiableCredential", "ServiceCredential"],
   "issuer": {
     "id": "https://doi.org/10.5281/zenodo.13741165"
