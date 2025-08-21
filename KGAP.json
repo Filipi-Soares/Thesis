@@ -1,0 +1,20 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "id": "https://raw.githubusercontent.com/AlmesCore/Almes-Core/main/Credentials/KGAP.json",
+  "type": ["VerifiableCredential", "ServiceCredential"],
+  "issuer": {
+    "id": "https://doi.org/10.5281/zenodo.13741165"
+  },
+  "issuanceDate": "2025-08-21T12:00:00Z",
+  "credentialSubject": {
+    "id": "did:example:public",
+    "service": {
+      "name": "KGAP: An RDF Knowledge Graph for Agricultural Prices",
+      "access": "public",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "note": "This dataset is free to reuse under CC-BY 4.0. No restrictions apply."
+    }
+  }
+}
